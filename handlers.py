@@ -622,6 +622,26 @@ async def get_time(message: Message, state: FSMContext):
         "Мы ждём вас!",
         reply_markup=main_keyboard(is_admin(user_id))
     )
+
+    # Уведомляем всех админов о новой записи
+    for admin_id in ADMIN_IDS:
+        try:
+            await message.bot.send_message(
+                admin_id,
+                f"🆕 Новая запись!\n\n"
+                f"👤 {client_name}\n"
+                f"📞 {phone}\n"
+                f"🔗 Telegram: {'@' + username if username else 'не указан'}\n"
+                f"💈 Мастер: {barber}\n"
+                f"✂️ Услуга: {service}\n"
+                f"💵 Цена: {service_price} ₽\n"
+                f"📅 Дата: {booking_date}\n"
+                f"🕒 Время: {booking_time}\n"
+                f"🆔 Запись #{booking_id}"
+            )
+        except Exception:
+            pass
+
     await state.clear()
 
 
