@@ -1,5 +1,5 @@
 BOT_TOKEN = "8748706307:AAHy6EdC1pQMv7sRWhHfW8la3z3b0929_MA"
-ADMIN_IDS = [5321829773, 1433968449]  # сюда впиши свой Telegram ID
+ADMIN_IDS = []  # сюда впиши свой Telegram ID
 
 TIMEZONE = "Europe/Moscow"
 BARBERSHOP_NAME = "Barbershop Premium"
